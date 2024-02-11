@@ -1,3 +1,9 @@
-add_executable(${PROJECT_NAME} main.cpp)
+set(EXEC_SOURCE main.cpp)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC ${LIBRARY_NAME})
+add_executable(${PROJECT_NAME} ${EXEC_SOURCE})
+
+
+
+target_link_libraries(${PROJECT_NAME} PUBLIC 
+    ${LIBRARY_NAME}
+    nlohmann_json)

@@ -16,8 +16,15 @@ set(CMAKE_CXX_EXTENSIONS        OFF)
 
 option(COMPILE_EXECUTABLE "Whether to compile the executable" ON)
 
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
+include(AddGitSubmodule)
+
+add_git_submodule(external/gtest)
+add_git_submodule(external/json)
+
 add_subdirectory(libs)
 add_subdirectory(configured)
+add_subdirectory(external)
 if(COMPILE_EXECUTABLE)
     add_subdirectory(app)
 endif()
